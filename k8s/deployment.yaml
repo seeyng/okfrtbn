@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okfrtbn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: okfrtbn
+  template:
+    metadata:
+      labels:
+        app: okfrtbn
+    spec:
+      containers:
+      - image: okteto.dev/okfrtbn:latest
+        name: okfrtbn
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "eaf93be7-23f2-4e27-9cfe-395463f5a24a"
+        - name: Vless_Path
+          value: "/vlessegxgbrgrhf"
+        - name: Vmess_UUID
+          value: "eaf93be7-23f2-4e27-9cfe-395463f5a24a"
+        - name: Vmess_Path
+          value: "/vmesswhrdrhtdtdh"
+        - name: Share_Path
+          value: "/v2link"
